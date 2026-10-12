@@ -40,7 +40,13 @@ form?.addEventListener("submit", async (event) => {
   const replyto = String(data.get("replyto") || "").trim();
   const message = String(data.get("message") || "").trim();
 
-  if (!name || !replyto || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(replyto)) {
+  if (!replyto) {
+    statusEl.textContent = "请填写邮箱地址";
+    statusEl.classList.add("is-error");
+    return;
+  }
+
+  if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(replyto)) {
     statusEl.textContent = "请完整填写姓名、有效邮箱和消息。";
     statusEl.classList.add("is-error");
     return;
