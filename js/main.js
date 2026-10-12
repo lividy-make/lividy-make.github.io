@@ -37,10 +37,10 @@ form?.addEventListener("submit", async (event) => {
   const submitBtn = form.querySelector('button[type="submit"]');
   const data = new FormData(form);
   const name = String(data.get("name") || "").trim();
-  const email = String(data.get("email") || "").trim();
+  const replyto = String(data.get("replyto") || "").trim();
   const message = String(data.get("message") || "").trim();
 
-  if (!name || !email || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!name || !replyto || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(replyto)) {
     statusEl.textContent = "请完整填写姓名、有效邮箱和消息。";
     statusEl.classList.add("is-error");
     return;
