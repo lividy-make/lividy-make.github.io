@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STM32 传感器数据采集 · 李艺</title>
+    <meta
+      name="description"
+      content="设计并实现 4 通道模拟/数字混合传感器采集系统，完成信号调理、ADC 采样、数据缓冲与串口上传。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a class="logo" href="index.html">
+          <span class="logo__mark">/</span>
+          YI<span class="logo__dot">.</span>DEV
+        </a>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="打开菜单"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-menu" class="nav__links">
+          <a href="index.html#skills">技能</a>
+          <a href="index.html#projects">项目</a>
+          <a href="index.html#contact">联系</a>
+          <a class="btn btn--sm" href="index.html">返回首页</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="project-page">
+      <section class="project-hero">
+        <p class="eyebrow">
+          <span class="pulse"></span>
+          PROJECT · 02
+        </p>
+        <p class="project-crumb">
+          <a href="index.html">首页</a>
+          <span>/</span>
+          <a href="index.html#projects">精选项目</a>
+          <span>/</span>
+          <span>STM32 传感器采集</span>
+        </p>
+        <h1>STM32 传感器数据采集</h1>
+        <p class="hero__lead">
+          设计并实现 4 通道模拟/数字混合传感器采集系统，完成信号调理、ADC
+          采样、数据缓冲与串口上传，面向工业现场实时监测场景。
+        </p>
+        <div class="project-tags">
+          <span>STM32</span>
+          <span>传感器驱动</span>
+          <span>实时采样</span>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">01 / OVERVIEW</p>
+          <h2>项目概述</h2>
+        </header>
+        <div class="project-body">
+          <p>
+            本系统针对工业设备状态监测需求，基于 STM32F103
+            微控制器设计多通道数据采集方案。系统支持 4
+            路传感器输入（温度、压力、振动、开关量），完成信号调理、ADC
+            采样、滑动平均滤波与数据缓冲，并通过 UART/Modbus RTU 上传至 PC 端或
+            HMI。
+          </p>
+          <p>核心目标是实现稳定、低延迟、可复现的数据采集链路。</p>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">02 / ROLE</p>
+          <h2>我的角色</h2>
+        </header>
+        <div class="project-body">
+          <ul class="project-list">
+            <li>独立完成硬件选型、电路原理图设计与 PCB 布局</li>
+            <li>编写 STM32 底层驱动（ADC、UART、DMA、定时器）</li>
+            <li>实现滑动平均滤波算法与环形缓冲区数据管理</li>
+            <li>使用逻辑分析仪与串口助手完成系统联调与验证</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">03 / TECH STACK</p>
+          <h2>技术细节</h2>
+          <p>MCU 型号、编程语言、通信协议、开发工具与硬件。</p>
+        </header>
+        <dl class="tech-grid">
+          <div>
+            <dt>MCU / 控制器</dt>
+            <dd>STM32F103C8T6（ARM Cortex-M3）</dd>
+          </div>
+          <div>
+            <dt>编程语言</dt>
+            <dd>C / 寄存器 + 标准外设库</dd>
+          </div>
+          <div>
+            <dt>通信协议</dt>
+            <dd>UART / Modbus RTU</dd>
+          </div>
+          <div>
+            <dt>开发工具</dt>
+            <dd>Keil MDK、STM32CubeMX</dd>
+          </div>
+          <div>
+            <dt>硬件设计</dt>
+            <dd>Altium Designer</dd>
+          </div>
+          <div>
+            <dt>其他硬件</dt>
+            <dd>LM358 信号调理、ADS1115 外部 ADC、OLED 显示屏</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">04 / CHALLENGES</p>
+          <h2>技术难点</h2>
+        </header>
+        <div class="project-body">
+          <article class="challenge">
+            <h3>难点一 · 多通道采样时序冲突</h3>
+            <p>
+              4 路传感器共用 ADC 时会出现采样延迟。解决方案是采用 DMA +
+              定时器触发，实现 4 通道轮询采样，将采样周期稳定在 1ms，CPU
+              占用率降至 15% 以下。
+            </p>
+          </article>
+          <article class="challenge">
+            <h3>难点二 · 模拟信号噪声抑制</h3>
+            <p>
+              工业现场电磁干扰导致采样值抖动。解决方案是硬件上加 RC
+              低通滤波，软件上实现 16 点滑动平均滤波，将采样波动从 ±5% 降低至
+              ±0.5%。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">05 / RESULTS</p>
+          <h2>成果数据</h2>
+          <p>采样周期、波动与 CPU 占用率的量化结果。</p>
+        </header>
+        <dl class="stats results">
+          <div>
+            <dt>采样周期</dt>
+            <dd>1ms / 4 通道</dd>
+          </div>
+          <div>
+            <dt>采样波动</dt>
+            <dd>±0.5%</dd>
+          </div>
+          <div>
+            <dt>CPU 占用率</dt>
+            <dd>&lt; 15%</dd>
+          </div>
+        </dl>
+        <div class="project-body">
+          <ul class="project-list">
+            <li>形成可复用的 STM32 采集驱动模板，支持后续项目快速移植</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section project-cta">
+        <a class="btn" href="index.html">← 返回首页</a>
+        <a class="btn btn--ghost" href="index.html#projects">查看其他项目</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 李艺 · Built with HTML / CSS / JS</p>
+      <a href="#top">回到顶部</a>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

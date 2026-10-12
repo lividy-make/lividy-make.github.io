@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多工位顺序控制 · 李艺</title>
+    <meta
+      name="description"
+      content="设计三工位步进序列控制逻辑，覆盖多工位节拍、互锁条件与异常停机路径，带联锁保护。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a class="logo" href="index.html">
+          <span class="logo__mark">/</span>
+          YI<span class="logo__dot">.</span>DEV
+        </a>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="打开菜单"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-menu" class="nav__links">
+          <a href="index.html#skills">技能</a>
+          <a href="index.html#projects">项目</a>
+          <a href="index.html#contact">联系</a>
+          <a class="btn btn--sm" href="index.html">返回首页</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="project-page">
+      <section class="project-hero">
+        <p class="eyebrow">
+          <span class="pulse"></span>
+          PROJECT · 01
+        </p>
+        <p class="project-crumb">
+          <a href="index.html">首页</a>
+          <span>/</span>
+          <a href="index.html#projects">精选项目</a>
+          <span>/</span>
+          <span>多工位顺序控制</span>
+        </p>
+        <h1>多工位顺序控制</h1>
+        <p class="hero__lead">
+          设计三工位步进序列控制逻辑，覆盖多工位节拍、互锁条件与异常停机路径，带联锁保护，确保现场设备安全运行。
+        </p>
+        <div class="project-tags">
+          <span>S7-1200</span>
+          <span>状态机</span>
+          <span>联锁保护</span>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">01 / OVERVIEW</p>
+          <h2>项目概述</h2>
+        </header>
+        <div class="project-body">
+          <p>
+            本系统针对自动化装配线中的多工位协同作业需求，基于西门子 S7-1200 PLC
+            设计状态机控制逻辑。系统包含上料、加工、下料三个工位，每个工位有独立的传感器检测和执行机构。
+          </p>
+          <p>
+            核心目标是实现工位间的精确节拍控制、防止误动作，并在异常时快速停机并报警。
+          </p>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">02 / ROLE</p>
+          <h2>我的角色</h2>
+        </header>
+        <div class="project-body">
+          <ul class="project-list">
+            <li>独立完成 PLC 程序编写与调试（SCL 语言）</li>
+            <li>负责 I/O 分配、联锁逻辑设计、异常处理路径编写</li>
+            <li>使用 Factory IO 搭建仿真环境进行逻辑验证</li>
+            <li>编写调试记录与操作说明</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">03 / TECH STACK</p>
+          <h2>技术细节</h2>
+          <p>PLC 型号、编程语言、通信协议、开发与仿真工具。</p>
+        </header>
+        <dl class="tech-grid">
+          <div>
+            <dt>PLC / 控制器</dt>
+            <dd>西门子 S7-1200（CPU 1214C）</dd>
+          </div>
+          <div>
+            <dt>编程语言</dt>
+            <dd>SCL / LAD</dd>
+          </div>
+          <div>
+            <dt>通信协议</dt>
+            <dd>Modbus RTU（与 HMI 通信）</dd>
+          </div>
+          <div>
+            <dt>开发工具</dt>
+            <dd>TIA Portal V17</dd>
+          </div>
+          <div>
+            <dt>仿真 / 联调</dt>
+            <dd>Factory IO</dd>
+          </div>
+          <div>
+            <dt>其他硬件</dt>
+            <dd>光电传感器、气缸、变频器、HMI</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">04 / CHALLENGES</p>
+          <h2>技术难点</h2>
+        </header>
+        <div class="project-body">
+          <article class="challenge">
+            <h3>难点一 · 多工位联锁逻辑复杂</h3>
+            <p>
+              需要确保任一工位未就绪时，其他工位不能启动。解决方案是采用状态机 +
+              互锁条件表，将每个工位的「就绪」「运行」「完成」「故障」状态显式定义，用
+              SCL 的 CASE 语句实现。
+            </p>
+          </article>
+          <article class="challenge">
+            <h3>难点二 · 异常停机路径设计</h3>
+            <p>
+              模拟气缸卡滞、传感器失效等场景，确保系统能安全停机并记录故障工位。通过
+              Factory IO 注入故障，验证了 5 种异常场景下的响应时间均小于 200ms。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">05 / RESULTS</p>
+          <h2>成果数据</h2>
+          <p>节拍、异常响应与联锁覆盖的量化结果。</p>
+        </header>
+        <dl class="stats results">
+          <div>
+            <dt>节拍时间</dt>
+            <dd>8s / 工位</dd>
+          </div>
+          <div>
+            <dt>异常响应</dt>
+            <dd>&lt; 200ms</dd>
+          </div>
+          <div>
+            <dt>联锁覆盖</dt>
+            <dd>100% 工位</dd>
+          </div>
+        </dl>
+        <div class="project-body">
+          <ul class="project-list">
+            <li>形成可复用的状态机模板，后续项目直接调用</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section project-cta">
+        <a class="btn" href="index.html">← 返回首页</a>
+        <a class="btn btn--ghost" href="index.html#projects">查看其他项目</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 李艺 · Built with HTML / CSS / JS</p>
+      <a href="#top">回到顶部</a>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
