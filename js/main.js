@@ -5,6 +5,35 @@ const chips = document.querySelectorAll(".chip");
 const skills = document.querySelectorAll(".skill");
 const form = document.querySelector("#contact-form");
 const statusEl = document.querySelector(".form__status");
+const langToggle = document.querySelector("#lang-toggle");
+
+let currentLang = localStorage.getItem("lang") === "en" ? "en" : "zh";
+
+function t(key) {
+  return translations[currentLang]?.[key] ?? translations.zh[key] ?? key;
+}
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const text = translations[lang]?.[key];
+    if (text != null) el.textContent = text;
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const text = translations[lang]?.[key];
+    if (text != null) el.setAttribute("placeholder", text);
+  });
+
+  if (langToggle) {
+    langToggle.textContent = lang === "zh" ? "EN" : "中文";
+  }
+}
 
 toggle?.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
@@ -31,6 +60,12 @@ chips.forEach((chip) => {
   });
 });
 
+langToggle?.addEventListener("click", () => {
+  applyLanguage(currentLang === "zh" ? "en" : "zh");
+});
+
+applyLanguage(currentLang);
+
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -41,23 +76,23 @@ form?.addEventListener("submit", async (event) => {
   const message = String(data.get("message") || "").trim();
 
   if (!replyto) {
-    statusEl.textContent = "请填写邮箱地址";
+    statusEl.textContent = t("form.error.replyto");
     statusEl.classList.add("is-error");
     return;
   }
 
   if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(replyto)) {
-    statusEl.textContent = "请完整填写姓名、有效邮箱和消息。";
+    statusEl.textContent = t("form.error.incomplete");
     statusEl.classList.add("is-error");
     return;
   }
 
-  const originalLabel = submitBtn?.textContent || "发送消息";
+  const originalLabel = t("form.submit");
   statusEl.classList.remove("is-error");
   statusEl.textContent = "";
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.textContent = "发送中……";
+    submitBtn.textContent = t("form.sending");
   }
 
   try {
@@ -70,16 +105,15 @@ form?.addEventListener("submit", async (event) => {
 
     if (response.ok && result.success) {
       statusEl.classList.remove("is-error");
-      statusEl.textContent = "消息已发送，我会尽快回复。";
+      statusEl.textContent = t("form.success");
       form.reset();
     } else {
       statusEl.classList.add("is-error");
-      statusEl.textContent =
-        result.message || "发送失败，请稍后重试或直接发邮件联系我。";
+      statusEl.textContent = result.message || t("form.error.fail");
     }
   } catch {
     statusEl.classList.add("is-error");
-    statusEl.textContent = "网络异常，发送失败，请稍后重试。";
+    statusEl.textContent = t("form.error.network");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;

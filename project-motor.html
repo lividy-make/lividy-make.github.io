@@ -38,10 +38,13 @@
           <span></span>
         </button>
         <nav id="site-menu" class="nav__links">
-          <a href="index.html#skills">技能</a>
-          <a href="index.html#projects">项目</a>
-          <a href="index.html#contact">联系</a>
-          <a class="btn btn--sm" href="index.html">返回首页</a>
+          <a href="index.html#skills" data-i18n="nav.skills">技能</a>
+          <a href="index.html#projects" data-i18n="nav.projects">项目</a>
+          <a href="index.html#contact" data-i18n="nav.contact">联系</a>
+          <a class="btn btn--sm" href="index.html" data-i18n="nav.home"
+            >返回首页</a
+          >
+          <button id="lang-toggle" class="btn btn--sm" type="button">EN</button>
         </nav>
       </div>
     </header>
@@ -53,36 +56,36 @@
           PROJECT · 03
         </p>
         <p class="project-crumb">
-          <a href="index.html">首页</a>
+          <a href="index.html" data-i18n="crumb.home">首页</a>
           <span>/</span>
-          <a href="index.html#projects">精选项目</a>
+          <a href="index.html#projects" data-i18n="projects.title">精选项目</a>
           <span>/</span>
-          <span>电机调速仿真</span>
+          <span data-i18n="project.motor.crumb">电机调速仿真</span>
         </p>
-        <h1>电机调速 Simulink 仿真</h1>
-        <p class="hero__lead">
+        <h1 data-i18n="project.motor.title">电机调速 Simulink 仿真</h1>
+        <p class="hero__lead" data-i18n="project.motor.lead">
           搭建直流电机数学模型与 PID
           闭环控制仿真平台，验证调速策略的动态响应与稳态精度，为现场调试提供参数依据。
         </p>
         <div class="project-tags">
           <span>Simulink</span>
-          <span>调速模型</span>
-          <span>PID 验证</span>
+          <span data-i18n="project.motor.tag2">调速模型</span>
+          <span data-i18n="project.motor.tag3">PID 验证</span>
         </div>
       </section>
 
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">01 / OVERVIEW</p>
-          <h2>项目概述</h2>
+          <h2 data-i18n="project.motor.overview.title">项目概述</h2>
         </header>
         <div class="project-body">
-          <p>
+          <p data-i18n="project.motor.overview.body1">
             本系统针对直流电机调速需求，基于 MATLAB/Simulink
             搭建电机数学模型与 PID 闭环控制仿真平台。系统包含电机本体模型、PWM
             驱动、编码器反馈与 PID 控制器，支持空载与负载扰动工况下的调速验证。
           </p>
-          <p>
+          <p data-i18n="project.motor.overview.body2">
             核心目标是评估不同 PID
             参数下的动态响应与稳态精度，为实际调试提供参考。
           </p>
@@ -92,14 +95,22 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">02 / ROLE</p>
-          <h2>我的角色</h2>
+          <h2 data-i18n="project.motor.role.title">我的角色</h2>
         </header>
         <div class="project-body">
           <ul class="project-list">
-            <li>独立完成电机数学建模与 Simulink 仿真搭建</li>
-            <li>设计 PID 控制器参数并完成整定</li>
-            <li>分析空载/负载扰动下的动态响应曲线</li>
-            <li>编写仿真报告与参数整定建议</li>
+            <li data-i18n="project.motor.role.item1">
+              独立完成电机数学建模与 Simulink 仿真搭建
+            </li>
+            <li data-i18n="project.motor.role.item2">
+              设计 PID 控制器参数并完成整定
+            </li>
+            <li data-i18n="project.motor.role.item3">
+              分析空载/负载扰动下的动态响应曲线
+            </li>
+            <li data-i18n="project.motor.role.item4">
+              编写仿真报告与参数整定建议
+            </li>
           </ul>
         </div>
       </section>
@@ -107,33 +118,43 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">03 / TECH STACK</p>
-          <h2>技术细节</h2>
-          <p>仿真平台、控制算法、电机模型与相关工具模块。</p>
+          <h2 data-i18n="project.motor.tech.title">技术细节</h2>
+          <p data-i18n="project.motor.tech.desc">
+            仿真平台、控制算法、电机模型与相关工具模块。
+          </p>
         </header>
         <dl class="tech-grid">
           <div>
-            <dt>仿真平台</dt>
-            <dd>MATLAB / Simulink R2024b</dd>
+            <dt data-i18n="project.motor.tech.platform.label">仿真平台</dt>
+            <dd data-i18n="project.motor.tech.platform.value">
+              MATLAB / Simulink R2024b
+            </dd>
           </div>
           <div>
-            <dt>控制算法</dt>
-            <dd>PID / 抗积分饱和</dd>
+            <dt data-i18n="project.motor.tech.algo.label">控制算法</dt>
+            <dd data-i18n="project.motor.tech.algo.value">PID / 抗积分饱和</dd>
           </div>
           <div>
-            <dt>电机模型</dt>
-            <dd>直流电机二阶传递函数</dd>
+            <dt data-i18n="project.motor.tech.model.label">电机模型</dt>
+            <dd data-i18n="project.motor.tech.model.value">
+              直流电机二阶传递函数
+            </dd>
           </div>
           <div>
-            <dt>开发工具</dt>
-            <dd>Simulink、Control System Toolbox</dd>
+            <dt data-i18n="project.motor.tech.tool.label">开发工具</dt>
+            <dd data-i18n="project.motor.tech.tool.value">
+              Simulink、Control System Toolbox
+            </dd>
           </div>
           <div>
-            <dt>驱动与反馈</dt>
-            <dd>PWM 驱动、编码器反馈</dd>
+            <dt data-i18n="project.motor.tech.drive.label">驱动与反馈</dt>
+            <dd data-i18n="project.motor.tech.drive.value">
+              PWM 驱动、编码器反馈
+            </dd>
           </div>
           <div>
-            <dt>其他模块</dt>
-            <dd>负载扰动模块</dd>
+            <dt data-i18n="project.motor.tech.other.label">其他模块</dt>
+            <dd data-i18n="project.motor.tech.other.value">负载扰动模块</dd>
           </div>
         </dl>
       </section>
@@ -141,20 +162,24 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">04 / CHALLENGES</p>
-          <h2>技术难点</h2>
+          <h2 data-i18n="project.motor.challenges.title">技术难点</h2>
         </header>
         <div class="project-body">
           <article class="challenge">
-            <h3>难点一 · 电机参数不确定性</h3>
-            <p>
+            <h3 data-i18n="project.motor.challenge1.title">
+              难点一 · 电机参数不确定性
+            </h3>
+            <p data-i18n="project.motor.challenge1.body">
               实际电机参数与标称值存在偏差，导致仿真结果偏离现场。解决方案是采用参数扫描（Parameter
               Sweep）分析不同电阻、电感、转动惯量下的响应，确定鲁棒性较好的 PID
               参数区间。
             </p>
           </article>
           <article class="challenge">
-            <h3>难点二 · 负载扰动下的稳态误差</h3>
-            <p>
+            <h3 data-i18n="project.motor.challenge2.title">
+              难点二 · 负载扰动下的稳态误差
+            </h3>
+            <p data-i18n="project.motor.challenge2.body">
               突加负载时转速跌落明显。解决方案是引入抗积分饱和与前馈补偿，将负载扰动下的转速恢复时间从
               1.2s 缩短至 0.4s，稳态误差控制在 ±1% 以内。
             </p>
@@ -165,41 +190,53 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">05 / RESULTS</p>
-          <h2>成果数据</h2>
-          <p>稳态误差、扰动恢复与超调量的量化结果。</p>
+          <h2 data-i18n="project.motor.results.title">成果数据</h2>
+          <p data-i18n="project.motor.results.desc">
+            稳态误差、扰动恢复与超调量的量化结果。
+          </p>
         </header>
         <dl class="stats results">
           <div>
-            <dt>稳态误差</dt>
-            <dd>±1%</dd>
+            <dt data-i18n="project.motor.results.metric1.label">稳态误差</dt>
+            <dd data-i18n="project.motor.results.metric1.value">±1%</dd>
           </div>
           <div>
-            <dt>扰动恢复</dt>
-            <dd>0.4s</dd>
+            <dt data-i18n="project.motor.results.metric2.label">扰动恢复</dt>
+            <dd data-i18n="project.motor.results.metric2.value">0.4s</dd>
           </div>
           <div>
-            <dt>超调量</dt>
-            <dd>&lt; 5%</dd>
+            <dt data-i18n="project.motor.results.metric3.label">超调量</dt>
+            <dd data-i18n="project.motor.results.metric3.value">&lt; 5%</dd>
           </div>
         </dl>
         <div class="project-body">
           <ul class="project-list">
-            <li>形成可复用的 PID 参数整定流程文档，可用于实际电机调试</li>
+            <li data-i18n="project.motor.results.note">
+              形成可复用的 PID 参数整定流程文档，可用于实际电机调试
+            </li>
           </ul>
         </div>
       </section>
 
       <section class="section project-cta">
-        <a class="btn" href="index.html">← 返回首页</a>
-        <a class="btn btn--ghost" href="index.html#projects">查看其他项目</a>
+        <a class="btn" href="index.html" data-i18n="project.cta.home"
+          >← 返回首页</a
+        >
+        <a
+          class="btn btn--ghost"
+          href="index.html#projects"
+          data-i18n="project.cta.others"
+          >查看其他项目</a
+        >
       </section>
     </main>
 
     <footer class="footer">
-      <p>© 2026 李艺 · Built with HTML / CSS / JS</p>
-      <a href="#top">回到顶部</a>
+      <p data-i18n="footer.copy">© 2026 李艺 · Built with HTML / CSS / JS</p>
+      <a href="#top" data-i18n="footer.top">回到顶部</a>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

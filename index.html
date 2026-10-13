@@ -38,10 +38,11 @@
           <span></span>
         </button>
         <nav id="site-menu" class="nav__links">
-          <a href="#skills">技能</a>
-          <a href="#projects">项目</a>
-          <a href="#contact">联系</a>
-          <a class="btn btn--sm" href="#contact">联系我</a>
+          <a href="#skills" data-i18n="nav.skills">技能</a>
+          <a href="#projects" data-i18n="nav.projects">项目</a>
+          <a href="#contact" data-i18n="nav.contact">联系</a>
+          <a class="btn btn--sm" href="#contact" data-i18n="nav.cta">联系我</a>
+          <button id="lang-toggle" class="btn btn--sm" type="button">EN</button>
         </nav>
       </div>
     </header>
@@ -53,29 +54,33 @@
           SYSTEM ONLINE · 2026
         </p>
         <h1>
-          构建可靠系统，<br />
-          <span class="accent">也打磨可见体验。</span>
+          <span data-i18n="hero.title.line1">构建可靠系统，</span><br />
+          <span class="accent" data-i18n="hero.title.line2">也打磨可见体验。</span>
         </h1>
-        <p class="hero__lead">
+        <p class="hero__lead" data-i18n="hero.lead">
           我是李艺，自动化专业学生。关注 PLC 顺序控制、嵌入式采集与电机仿真，
           把现场联锁、传感器数据和调速模型做成可验证、可落地的工程方案。
         </p>
         <div class="hero__actions">
-          <a class="btn" href="#projects">查看项目</a>
-          <a class="btn btn--ghost" href="#contact">获取联系方式</a>
+          <a class="btn" href="#projects" data-i18n="hero.cta.projects"
+            >查看项目</a
+          >
+          <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta.contact"
+            >获取联系方式</a
+          >
         </div>
         <dl class="stats">
           <div>
-            <dt>项目数量</dt>
-            <dd>3 个</dd>
+            <dt data-i18n="stats.projects.label">项目数量</dt>
+            <dd data-i18n="stats.projects.value">3 个</dd>
           </div>
           <div>
-            <dt>技能覆盖</dt>
-            <dd>12 项</dd>
+            <dt data-i18n="stats.skills.label">技能覆盖</dt>
+            <dd data-i18n="stats.skills.value">12 项</dd>
           </div>
           <div>
-            <dt>求职状态</dt>
-            <dd>开放实习/校招</dd>
+            <dt data-i18n="stats.status.label">求职状态</dt>
+            <dd data-i18n="stats.status.value">开放实习/校招</dd>
           </div>
         </dl>
       </section>
@@ -83,90 +88,123 @@
       <section id="skills" class="section">
         <header class="section__head">
           <p class="eyebrow">01 / SKILL MATRIX</p>
-          <h2>技能矩阵</h2>
-          <p>按工程方向标注熟练度。点击分类可筛选高亮。</p>
+          <h2 data-i18n="skills.title">技能矩阵</h2>
+          <p data-i18n="skills.desc">按工程方向标注熟练度。点击分类可筛选高亮。</p>
         </header>
 
         <div class="matrix-filters" role="tablist" aria-label="技能分类">
-          <button class="chip is-active" data-filter="all" type="button">
+          <button
+            class="chip is-active"
+            data-filter="all"
+            type="button"
+            data-i18n="skills.filter.all"
+          >
             全部
           </button>
-          <button class="chip" data-filter="software" type="button">软件工具</button>
-          <button class="chip" data-filter="code" type="button">编程</button>
-          <button class="chip" data-filter="plc" type="button">PLC / 硬件</button>
-          <button class="chip" data-filter="control" type="button">控制 / 仿真</button>
+          <button
+            class="chip"
+            data-filter="software"
+            type="button"
+            data-i18n="skills.filter.software"
+          >
+            软件工具
+          </button>
+          <button
+            class="chip"
+            data-filter="code"
+            type="button"
+            data-i18n="skills.filter.code"
+          >
+            编程
+          </button>
+          <button
+            class="chip"
+            data-filter="plc"
+            type="button"
+            data-i18n="skills.filter.plc"
+          >
+            PLC / 硬件
+          </button>
+          <button
+            class="chip"
+            data-filter="control"
+            type="button"
+            data-i18n="skills.filter.control"
+          >
+            控制 / 仿真
+          </button>
         </div>
 
         <div class="matrix" id="skill-matrix">
           <article class="skill" data-cat="software" style="--lv: 92">
             <h3>TIA Portal</h3>
-            <p>西门子编程 / 调试</p>
+            <p data-i18n="skill.tia.desc">西门子编程 / 调试</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L5</span>
           </article>
           <article class="skill" data-cat="software" style="--lv: 88">
             <h3>EPLAN</h3>
-            <p>电气原理 / 图纸</p>
+            <p data-i18n="skill.eplan.desc">电气原理 / 图纸</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="software" style="--lv: 84">
             <h3>CODESYS</h3>
-            <p>IEC 61131 / 软 PLC</p>
+            <p data-i18n="skill.codesys.desc">IEC 61131 / 软 PLC</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="control" style="--lv: 90">
             <h3>MATLAB</h3>
-            <p>建模 / 数据分析</p>
+            <p data-i18n="skill.matlab.desc">建模 / 数据分析</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L5</span>
           </article>
           <article class="skill" data-cat="code" style="--lv: 86">
             <h3>C / C++</h3>
-            <p>嵌入式底层开发</p>
+            <p data-i18n="skill.cpp.desc">嵌入式底层开发</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="code" style="--lv: 82">
             <h3>Python</h3>
-            <p>脚本 / 数据处理</p>
+            <p data-i18n="skill.python.desc">脚本 / 数据处理</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="plc" style="--lv: 88">
             <h3>STM32</h3>
-            <p>MCU / 外设驱动</p>
+            <p data-i18n="skill.stm32.desc">MCU / 外设驱动</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="plc" style="--lv: 94">
-            <h3>西门子 S7-1200</h3>
-            <p>顺序控制 / 联锁</p>
+            <h3 data-i18n="skill.s71200.name">西门子 S7-1200</h3>
+            <p data-i18n="skill.s71200.desc">顺序控制 / 联锁</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L5</span>
           </article>
           <article class="skill" data-cat="plc" style="--lv: 86">
-            <h3>三菱 FX 系列</h3>
-            <p>梯形图 / 现场调试</p>
+            <h3 data-i18n="skill.mitsubishi.name">三菱 FX 系列</h3>
+            <p data-i18n="skill.mitsubishi.desc">梯形图 / 现场调试</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="control" style="--lv: 84">
             <h3>Modbus</h3>
-            <p>RTU / TCP 通信</p>
+            <p data-i18n="skill.modbus.desc">RTU / TCP 通信</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
           <article class="skill" data-cat="control" style="--lv: 90">
-            <h3>PID 控制</h3>
-            <p>调参 / 闭环设计</p>
+            <h3 data-i18n="skill.pid.name">PID 控制</h3>
+            <p data-i18n="skill.pid.desc">调参 / 闭环设计</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L5</span>
           </article>
           <article class="skill" data-cat="control" style="--lv: 80">
             <h3>Factory IO</h3>
-            <p>虚拟产线 / 联调</p>
+            <p data-i18n="skill.factoryio.desc">虚拟产线 / 联调</p>
             <div class="bar" aria-hidden="true"><span></span></div>
             <span class="lv">L4</span>
           </article>
@@ -176,8 +214,10 @@
       <section id="projects" class="section">
         <header class="section__head">
           <p class="eyebrow">02 / SELECTED WORK</p>
-          <h2>精选项目</h2>
-          <p>三件能代表交付完整度的作品：从 PLC 联锁、嵌入式采集到电机仿真。</p>
+          <h2 data-i18n="projects.title">精选项目</h2>
+          <p data-i18n="projects.desc">
+            三件能代表交付完整度的作品：从 PLC 联锁、嵌入式采集到电机仿真。
+          </p>
         </header>
 
         <div class="projects">
@@ -186,16 +226,21 @@
               <span>01</span>
               <span>PLC Control</span>
             </div>
-            <h3>多工位顺序控制</h3>
-            <p>
+            <h3 data-i18n="project.plc.title">多工位顺序控制</h3>
+            <p data-i18n="project.plc.desc">
               基于 S7-1200 的状态机设计，覆盖多工位节拍、互锁条件与异常停机路径，带联锁保护。
             </p>
             <ul>
               <li>S7-1200</li>
-              <li>状态机</li>
-              <li>联锁保护</li>
+              <li data-i18n="project.plc.tag2">状态机</li>
+              <li data-i18n="project.plc.tag3">联锁保护</li>
             </ul>
-            <a class="card__link" href="project-plc.html">了解协作细节 →</a>
+            <a
+              class="card__link"
+              href="project-plc.html"
+              data-i18n="project.plc.link"
+              >了解协作细节 →</a
+            >
           </article>
 
           <article class="card">
@@ -203,16 +248,21 @@
               <span>02</span>
               <span>Embedded</span>
             </div>
-            <h3>STM32 传感器数据采集</h3>
-            <p>
+            <h3 data-i18n="project.stm32.title">STM32 传感器数据采集</h3>
+            <p data-i18n="project.stm32.desc">
               嵌入式硬件方向：完成传感器驱动、采样时序与数据缓冲，面向现场实时采集与调试。
             </p>
             <ul>
               <li>STM32</li>
-              <li>传感器驱动</li>
-              <li>实时采样</li>
+              <li data-i18n="project.stm32.tag2">传感器驱动</li>
+              <li data-i18n="project.stm32.tag3">实时采样</li>
             </ul>
-            <a class="card__link" href="project-stm32.html">了解协作细节 →</a>
+            <a
+              class="card__link"
+              href="project-stm32.html"
+              data-i18n="project.stm32.link"
+              >了解协作细节 →</a
+            >
           </article>
 
           <article class="card">
@@ -220,16 +270,21 @@
               <span>03</span>
               <span>Electrical</span>
             </div>
-            <h3>电机调速 Simulink 仿真</h3>
-            <p>
+            <h3 data-i18n="project.motor.title">电机调速 Simulink 仿真</h3>
+            <p data-i18n="project.motor.desc">
               电气方向：搭建电机调速仿真模型，验证 PID 参数与动态响应，为现场调试提供依据。
             </p>
             <ul>
               <li>Simulink</li>
-              <li>调速模型</li>
-              <li>PID 验证</li>
+              <li data-i18n="project.motor.tag2">调速模型</li>
+              <li data-i18n="project.motor.tag3">PID 验证</li>
             </ul>
-            <a class="card__link" href="project-motor.html">了解协作细节 →</a>
+            <a
+              class="card__link"
+              href="project-motor.html"
+              data-i18n="project.motor.link"
+              >了解协作细节 →</a
+            >
           </article>
         </div>
       </section>
@@ -237,8 +292,10 @@
       <section id="contact" class="section contact">
         <header class="section__head">
           <p class="eyebrow">03 / CONTACT</p>
-          <h2>联系方式</h2>
-          <p>项目咨询、技术评审或工程协作，都可以直接写信。</p>
+          <h2 data-i18n="contact.title">联系方式</h2>
+          <p data-i18n="contact.desc">
+            项目咨询、技术评审或工程协作，都可以直接写信。
+          </p>
         </header>
 
         <div class="contact__grid">
@@ -250,8 +307,8 @@
               rel="noreferrer"
               >github.com/lividy-make</a
             >
-            <p>时区 · GMT+8 · 中国 · 可远程</p>
-            <p>通常 24 小时内回复。</p>
+            <p data-i18n="contact.timezone">时区 · GMT+8 · 中国 · 可远程</p>
+            <p data-i18n="contact.reply">通常 24 小时内回复。</p>
           </aside>
 
           <form
@@ -275,11 +332,17 @@
               aria-hidden="true"
             />
             <label>
-              姓名
-              <input name="name" type="text" required placeholder="怎么称呼你" />
+              <span data-i18n="form.name">姓名</span>
+              <input
+                name="name"
+                type="text"
+                required
+                placeholder="怎么称呼你"
+                data-i18n-placeholder="form.name.placeholder"
+              />
             </label>
             <label>
-              邮箱
+              <span data-i18n="form.email">邮箱</span>
               <input
                 name="replyto"
                 type="email"
@@ -288,15 +351,18 @@
               />
             </label>
             <label>
-              想聊什么
+              <span data-i18n="form.message">想聊什么</span>
               <textarea
                 name="message"
                 rows="4"
                 required
                 placeholder="项目背景、时间窗口、期望产出……"
+                data-i18n-placeholder="form.message.placeholder"
               ></textarea>
             </label>
-            <button class="btn" type="submit">发送消息</button>
+            <button class="btn" type="submit" data-i18n="form.submit">
+              发送消息
+            </button>
             <p class="form__status" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -304,10 +370,11 @@
     </main>
 
     <footer class="footer">
-      <p>© 2026 李艺 · Built with HTML / CSS / JS</p>
-      <a href="#top">回到顶部</a>
+      <p data-i18n="footer.copy">© 2026 李艺 · Built with HTML / CSS / JS</p>
+      <a href="#top" data-i18n="footer.top">回到顶部</a>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

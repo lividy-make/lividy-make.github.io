@@ -38,10 +38,13 @@
           <span></span>
         </button>
         <nav id="site-menu" class="nav__links">
-          <a href="index.html#skills">技能</a>
-          <a href="index.html#projects">项目</a>
-          <a href="index.html#contact">联系</a>
-          <a class="btn btn--sm" href="index.html">返回首页</a>
+          <a href="index.html#skills" data-i18n="nav.skills">技能</a>
+          <a href="index.html#projects" data-i18n="nav.projects">项目</a>
+          <a href="index.html#contact" data-i18n="nav.contact">联系</a>
+          <a class="btn btn--sm" href="index.html" data-i18n="nav.home"
+            >返回首页</a
+          >
+          <button id="lang-toggle" class="btn btn--sm" type="button">EN</button>
         </nav>
       </div>
     </header>
@@ -53,34 +56,34 @@
           PROJECT · 01
         </p>
         <p class="project-crumb">
-          <a href="index.html">首页</a>
+          <a href="index.html" data-i18n="crumb.home">首页</a>
           <span>/</span>
-          <a href="index.html#projects">精选项目</a>
+          <a href="index.html#projects" data-i18n="projects.title">精选项目</a>
           <span>/</span>
-          <span>多工位顺序控制</span>
+          <span data-i18n="project.plc.title">多工位顺序控制</span>
         </p>
-        <h1>多工位顺序控制</h1>
-        <p class="hero__lead">
+        <h1 data-i18n="project.plc.title">多工位顺序控制</h1>
+        <p class="hero__lead" data-i18n="project.plc.lead">
           设计三工位步进序列控制逻辑，覆盖多工位节拍、互锁条件与异常停机路径，带联锁保护，确保现场设备安全运行。
         </p>
         <div class="project-tags">
           <span>S7-1200</span>
-          <span>状态机</span>
-          <span>联锁保护</span>
+          <span data-i18n="project.plc.tag2">状态机</span>
+          <span data-i18n="project.plc.tag3">联锁保护</span>
         </div>
       </section>
 
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">01 / OVERVIEW</p>
-          <h2>项目概述</h2>
+          <h2 data-i18n="project.plc.overview.title">项目概述</h2>
         </header>
         <div class="project-body">
-          <p>
+          <p data-i18n="project.plc.overview.body1">
             本系统针对自动化装配线中的多工位协同作业需求，基于西门子 S7-1200 PLC
             设计状态机控制逻辑。系统包含上料、加工、下料三个工位，每个工位有独立的传感器检测和执行机构。
           </p>
-          <p>
+          <p data-i18n="project.plc.overview.body2">
             核心目标是实现工位间的精确节拍控制、防止误动作，并在异常时快速停机并报警。
           </p>
         </div>
@@ -89,14 +92,20 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">02 / ROLE</p>
-          <h2>我的角色</h2>
+          <h2 data-i18n="project.plc.role.title">我的角色</h2>
         </header>
         <div class="project-body">
           <ul class="project-list">
-            <li>独立完成 PLC 程序编写与调试（SCL 语言）</li>
-            <li>负责 I/O 分配、联锁逻辑设计、异常处理路径编写</li>
-            <li>使用 Factory IO 搭建仿真环境进行逻辑验证</li>
-            <li>编写调试记录与操作说明</li>
+            <li data-i18n="project.plc.role.item1">
+              独立完成 PLC 程序编写与调试（SCL 语言）
+            </li>
+            <li data-i18n="project.plc.role.item2">
+              负责 I/O 分配、联锁逻辑设计、异常处理路径编写
+            </li>
+            <li data-i18n="project.plc.role.item3">
+              使用 Factory IO 搭建仿真环境进行逻辑验证
+            </li>
+            <li data-i18n="project.plc.role.item4">编写调试记录与操作说明</li>
           </ul>
         </div>
       </section>
@@ -104,33 +113,41 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">03 / TECH STACK</p>
-          <h2>技术细节</h2>
-          <p>PLC 型号、编程语言、通信协议、开发与仿真工具。</p>
+          <h2 data-i18n="project.plc.tech.title">技术细节</h2>
+          <p data-i18n="project.plc.tech.desc">
+            PLC 型号、编程语言、通信协议、开发与仿真工具。
+          </p>
         </header>
         <dl class="tech-grid">
           <div>
-            <dt>PLC / 控制器</dt>
-            <dd>西门子 S7-1200（CPU 1214C）</dd>
+            <dt data-i18n="project.plc.tech.plc.label">PLC / 控制器</dt>
+            <dd data-i18n="project.plc.tech.plc.value">
+              西门子 S7-1200（CPU 1214C）
+            </dd>
           </div>
           <div>
-            <dt>编程语言</dt>
-            <dd>SCL / LAD</dd>
+            <dt data-i18n="project.plc.tech.lang.label">编程语言</dt>
+            <dd data-i18n="project.plc.tech.lang.value">SCL / LAD</dd>
           </div>
           <div>
-            <dt>通信协议</dt>
-            <dd>Modbus RTU（与 HMI 通信）</dd>
+            <dt data-i18n="project.plc.tech.comm.label">通信协议</dt>
+            <dd data-i18n="project.plc.tech.comm.value">
+              Modbus RTU（与 HMI 通信）
+            </dd>
           </div>
           <div>
-            <dt>开发工具</dt>
-            <dd>TIA Portal V17</dd>
+            <dt data-i18n="project.plc.tech.tool.label">开发工具</dt>
+            <dd data-i18n="project.plc.tech.tool.value">TIA Portal V17</dd>
           </div>
           <div>
-            <dt>仿真 / 联调</dt>
-            <dd>Factory IO</dd>
+            <dt data-i18n="project.plc.tech.sim.label">仿真 / 联调</dt>
+            <dd data-i18n="project.plc.tech.sim.value">Factory IO</dd>
           </div>
           <div>
-            <dt>其他硬件</dt>
-            <dd>光电传感器、气缸、变频器、HMI</dd>
+            <dt data-i18n="project.plc.tech.hw.label">其他硬件</dt>
+            <dd data-i18n="project.plc.tech.hw.value">
+              光电传感器、气缸、变频器、HMI
+            </dd>
           </div>
         </dl>
       </section>
@@ -138,20 +155,24 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">04 / CHALLENGES</p>
-          <h2>技术难点</h2>
+          <h2 data-i18n="project.plc.challenges.title">技术难点</h2>
         </header>
         <div class="project-body">
           <article class="challenge">
-            <h3>难点一 · 多工位联锁逻辑复杂</h3>
-            <p>
+            <h3 data-i18n="project.plc.challenge1.title">
+              难点一 · 多工位联锁逻辑复杂
+            </h3>
+            <p data-i18n="project.plc.challenge1.body">
               需要确保任一工位未就绪时，其他工位不能启动。解决方案是采用状态机 +
               互锁条件表，将每个工位的「就绪」「运行」「完成」「故障」状态显式定义，用
               SCL 的 CASE 语句实现。
             </p>
           </article>
           <article class="challenge">
-            <h3>难点二 · 异常停机路径设计</h3>
-            <p>
+            <h3 data-i18n="project.plc.challenge2.title">
+              难点二 · 异常停机路径设计
+            </h3>
+            <p data-i18n="project.plc.challenge2.body">
               模拟气缸卡滞、传感器失效等场景，确保系统能安全停机并记录故障工位。通过
               Factory IO 注入故障，验证了 5 种异常场景下的响应时间均小于 200ms。
             </p>
@@ -162,41 +183,53 @@
       <section class="section project-block">
         <header class="section__head">
           <p class="eyebrow">05 / RESULTS</p>
-          <h2>成果数据</h2>
-          <p>节拍、异常响应与联锁覆盖的量化结果。</p>
+          <h2 data-i18n="project.plc.results.title">成果数据</h2>
+          <p data-i18n="project.plc.results.desc">
+            节拍、异常响应与联锁覆盖的量化结果。
+          </p>
         </header>
         <dl class="stats results">
           <div>
-            <dt>节拍时间</dt>
-            <dd>8s / 工位</dd>
+            <dt data-i18n="project.plc.results.metric1.label">节拍时间</dt>
+            <dd data-i18n="project.plc.results.metric1.value">8s / 工位</dd>
           </div>
           <div>
-            <dt>异常响应</dt>
-            <dd>&lt; 200ms</dd>
+            <dt data-i18n="project.plc.results.metric2.label">异常响应</dt>
+            <dd data-i18n="project.plc.results.metric2.value">&lt; 200ms</dd>
           </div>
           <div>
-            <dt>联锁覆盖</dt>
-            <dd>100% 工位</dd>
+            <dt data-i18n="project.plc.results.metric3.label">联锁覆盖</dt>
+            <dd data-i18n="project.plc.results.metric3.value">100% 工位</dd>
           </div>
         </dl>
         <div class="project-body">
           <ul class="project-list">
-            <li>形成可复用的状态机模板，后续项目直接调用</li>
+            <li data-i18n="project.plc.results.note">
+              形成可复用的状态机模板，后续项目直接调用
+            </li>
           </ul>
         </div>
       </section>
 
       <section class="section project-cta">
-        <a class="btn" href="index.html">← 返回首页</a>
-        <a class="btn btn--ghost" href="index.html#projects">查看其他项目</a>
+        <a class="btn" href="index.html" data-i18n="project.cta.home"
+          >← 返回首页</a
+        >
+        <a
+          class="btn btn--ghost"
+          href="index.html#projects"
+          data-i18n="project.cta.others"
+          >查看其他项目</a
+        >
       </section>
     </main>
 
     <footer class="footer">
-      <p>© 2026 李艺 · Built with HTML / CSS / JS</p>
-      <a href="#top">回到顶部</a>
+      <p data-i18n="footer.copy">© 2026 李艺 · Built with HTML / CSS / JS</p>
+      <a href="#top" data-i18n="footer.top">回到顶部</a>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
