@@ -45,7 +45,7 @@ const translations = {
 
     "projects.title": "精选项目",
     "projects.desc":
-      "三件能代表交付完整度的作品：从 PLC 联锁、嵌入式采集到电机仿真。",
+      "四件代表作品：覆盖 PLC 联锁、嵌入式采集、电机仿真与毫米波雷达信号处理。",
 
     "project.plc.title": "多工位顺序控制",
     "project.plc.desc":
@@ -67,6 +67,13 @@ const translations = {
     "project.motor.tag2": "调速模型",
     "project.motor.tag3": "PID 验证",
     "project.motor.link": "了解协作细节 →",
+
+    "project.radar.title": "FMCW 毫米波雷达信号处理",
+    "project.radar.desc":
+      "基于 MATLAB 构建 77GHz FMCW 雷达算法链路，完成 1D 测距、2D 测速与 2D CA-CFAR 目标检测。",
+    "project.radar.tag2": "FMCW",
+    "project.radar.tag3": "CFAR",
+    "project.radar.link": "了解协作细节 →",
 
     "contact.title": "联系方式",
     "contact.desc": "项目咨询、技术评审或工程协作，都可以直接写信。",
@@ -224,6 +231,53 @@ const translations = {
     "project.motor.results.metric3.value": "< 5%",
     "project.motor.results.note":
       "形成可复用的 PID 参数整定流程文档，可用于实际电机调试",
+
+    "project.radar.crumb": "毫米波雷达",
+    "project.radar.lead":
+      "基于 MATLAB 构建 77GHz FMCW 雷达算法链路，完成从一维测距、二维测速到 CFAR 目标检测的全流程物理仿真。",
+    "project.radar.overview.title": "项目概述",
+    "project.radar.overview.body1":
+      "本系统基于调频连续波（FMCW）体制，在 MATLAB 中构建完整的雷达信号处理算法链路。系统参数设定为载频 77GHz、带宽 4GHz、单 Chirp 扫频周期 50us。通过对中频信号进行快时间（1D FFT）提取距离信息，利用慢时间维度的 2D FFT 提取多普勒速度，最后通过 2D CA-CFAR（单元平均恒虚警率）算法在叠加噪声的环境中实现目标的自动检测与聚类。",
+    "project.radar.role.title": "我的角色",
+    "project.radar.role.item1":
+      "独立推导 FMCW 雷达测距、测速数学模型及雷达方程。",
+    "project.radar.role.item2":
+      "使用 MATLAB 编写波形生成、自由空间传播、目标反射与去斜（Dechirp）全链路仿真代码。",
+    "project.radar.role.item3":
+      "实现加窗处理（Hann Window）与 2D FFT 频谱分析，构建 Range-Doppler Map。",
+    "project.radar.role.item4":
+      "手写 2D CA-CFAR 检测器，完成保护单元、参考单元的动态滑动与阈值计算。",
+    "project.radar.tech.title": "技术细节",
+    "project.radar.tech.desc": "仿真平台、核心算法与雷达体制参数。",
+    "project.radar.tech.platform.label": "仿真平台",
+    "project.radar.tech.platform.value":
+      "MATLAB R2024b (+ Phased Array System Toolbox)",
+    "project.radar.tech.algo.label": "核心算法",
+    "project.radar.tech.algo.value":
+      "1D FFT / 2D FFT / CA-CFAR / 8-连通域聚类",
+    "project.radar.tech.sys.label": "雷达体制",
+    "project.radar.tech.sys.value": "FMCW (77GHz Center Freq, 4GHz BW)",
+    "project.radar.challenges.title": "技术难点",
+    "project.radar.challenge1.title": "难点一 · 欠采样与距离模糊",
+    "project.radar.challenge1.body":
+      "发现题目预设的 10MHz 采样率无法覆盖 30m 目标（最大不模糊距离仅约 18.7m），且会导致频谱混叠。通过理论计算将复基带采样率提升至 4GHz，成功解算出真实距离。",
+    "project.radar.challenge2.title": "难点二 · 动态阈值与目标聚类",
+    "project.radar.challenge2.body":
+      "在复杂噪声背景下手写 2D CA-CFAR，设计 2x2 保护单元与 4x4 参考单元，并结合 Pfa=1e-5 动态计算阈值乘数。针对目标主瓣跨越多个像素的问题，实现了基于八连通域的功率加权重心聚类，每个目标只保留一个位置。",
+    "project.radar.results.title": "成果数据与可视化",
+    "project.radar.results.desc":
+      "一维测距、二维测速与 CFAR 检测的量化结果，以及对应仿真图。",
+    "project.radar.results.metric1.label": "一维测距",
+    "project.radar.results.metric1.value": "30.017 m（分辨率 3.75 cm）",
+    "project.radar.results.metric2.label": "二维测速",
+    "project.radar.results.metric2.value": "-15.03 m/s",
+    "project.radar.results.metric3.label": "CFAR 检测",
+    "project.radar.results.metric3.value": "Pfa=1e-5 下成功提取",
+    "project.radar.results.note":
+      "形成完整的雷达信号处理链路，并生成 Range-Doppler Map。",
+    "project.radar.fig1": "图 1：FMCW 一维距离幅度谱（峰值锁定在 30.017m）",
+    "project.radar.fig2": "图 2：距离-多普勒图（峰值速度 -15.03 m/s）",
+    "project.radar.fig3": "图 3：基于二维 CA-CFAR 的检测结果与目标聚类",
   },
   en: {
     "nav.skills": "Skills",
@@ -272,7 +326,7 @@ const translations = {
 
     "projects.title": "Selected Work",
     "projects.desc":
-      "Three projects demonstrating end-to-end delivery: PLC interlocks, embedded acquisition, and motor simulation.",
+      "Four selected works covering PLC interlocks, embedded acquisition, motor simulation, and FMCW radar signal processing.",
 
     "project.plc.title": "Multi-Station Sequential Control",
     "project.plc.desc":
@@ -483,5 +537,64 @@ const translations = {
     "project.motor.results.metric3.value": "< 5%",
     "project.motor.results.note":
       "Produced a reusable PID tuning workflow document applicable to real motor commissioning",
+
+    "project.radar.title": "FMCW Radar Signal Processing",
+    "project.radar.desc":
+      "Built a 77GHz FMCW radar algorithm chain in MATLAB, covering 1D ranging, 2D velocity estimation, and 2D CA-CFAR target detection.",
+    "project.radar.tag2": "FMCW",
+    "project.radar.tag3": "CFAR",
+    "project.radar.link": "View Details →",
+
+    "project.radar.crumb": "FMCW Radar",
+    "project.radar.lead":
+      "Built a complete 77GHz FMCW radar signal processing chain in MATLAB, covering 1D ranging, 2D velocity estimation, and CA-CFAR target detection based on full physical simulation.",
+    "project.radar.overview.title": "Overview",
+    "project.radar.overview.body1":
+      "This system constructs a complete radar signal processing algorithm chain in MATLAB based on FMCW architecture. Parameters are set at 77GHz center frequency, 4GHz bandwidth, and 50us sweep time. It extracts range information via fast-time 1D FFT, estimates Doppler velocity via 2D FFT along the slow-time dimension, and finally achieves automatic target detection and clustering in noisy environments using the 2D CA-CFAR algorithm.",
+    "project.radar.role.title": "My Role",
+    "project.radar.role.item1":
+      "Independently derived the FMCW ranging/velocity mathematical models and radar equation.",
+    "project.radar.role.item2":
+      "Wrote the MATLAB script for waveform generation, free-space propagation, target reflection, and dechirp.",
+    "project.radar.role.item3":
+      "Implemented windowing (Hann Window) and 2D FFT spectrum analysis to construct the Range-Doppler Map.",
+    "project.radar.role.item4":
+      "Hand-coded the 2D CA-CFAR detector with dynamic sliding windows and threshold calculation.",
+    "project.radar.tech.title": "Tech Stack",
+    "project.radar.tech.desc": "Simulation platform and core algorithm chain.",
+    "project.radar.tech.platform.label": "Simulation Platform",
+    "project.radar.tech.platform.value":
+      "MATLAB R2024b (+ Phased Array System Toolbox)",
+    "project.radar.tech.algo.label": "Core Algorithms",
+    "project.radar.tech.algo.value":
+      "1D FFT / 2D FFT / CA-CFAR / 8-connected Clustering",
+    "project.radar.tech.sys.label": "Radar System",
+    "project.radar.tech.sys.value": "FMCW (77GHz Center Freq, 4GHz BW)",
+    "project.radar.challenges.title": "Challenges",
+    "project.radar.challenge1.title":
+      "Challenge 1 · Undersampling & Range Ambiguity",
+    "project.radar.challenge1.body":
+      "Discovered that the preset 10MHz sampling rate could not cover a 30m target (max unambiguous range only ~18.7m) and caused spectral aliasing. Increased the complex baseband sampling rate to 4GHz through theoretical calculation, successfully resolving the true range.",
+    "project.radar.challenge2.title":
+      "Challenge 2 · Dynamic Threshold & Target Clustering",
+    "project.radar.challenge2.body":
+      "Hand-coded 2D CA-CFAR in complex noise, designing 2x2 guard cells and 4x4 training cells with a dynamic threshold multiplier based on Pfa=1e-5. To address the issue of the main lobe spanning multiple pixels, implemented power-weighted centroid clustering based on 8-connectivity, keeping only one position per target.",
+    "project.radar.results.title": "Results & Visualization",
+    "project.radar.results.desc":
+      "Quantified results and visualizations of the algorithm chain.",
+    "project.radar.results.metric1.label": "1D Range Estimation",
+    "project.radar.results.metric1.value": "30.017 m (Res: 3.75 cm)",
+    "project.radar.results.metric2.label": "2D Velocity",
+    "project.radar.results.metric2.value": "-15.03 m/s",
+    "project.radar.results.metric3.label": "CFAR Detection",
+    "project.radar.results.metric3.value": "Success under Pfa=1e-5",
+    "project.radar.results.note":
+      "Formed a complete radar signal processing chain and generated the Range-Doppler Map.",
+    "project.radar.fig1":
+      "Fig 1: FMCW 1D Range Profile (Peak locked at 30.017m)",
+    "project.radar.fig2":
+      "Fig 2: Range-Doppler Map (Peak velocity at -15.03 m/s)",
+    "project.radar.fig3":
+      "Fig 3: 2D CA-CFAR Detection Results & Target Clustering",
   },
 };

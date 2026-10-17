@@ -629,6 +629,34 @@ h2 {
   padding: 32px 0 56px;
 }
 
+.project-figures {
+  display: grid;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.project-figures figure {
+  margin: 0;
+  text-align: center;
+}
+
+.project-figures img {
+  display: block;
+  width: 100%;
+  max-width: 880px;
+  margin-inline: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+}
+
+.project-figures figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   .matrix,
   .projects,

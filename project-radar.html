@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMCW 毫米波雷达信号处理 · 李艺</title>
+    <meta
+      name="description"
+      content="基于 MATLAB 构建 77GHz FMCW 雷达算法链路，完成从一维测距、二维测速到 CFAR 目标检测的全流程物理仿真。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a class="logo" href="index.html">
+          <span class="logo__mark">/</span>
+          YI<span class="logo__dot">.</span>DEV
+        </a>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="打开菜单"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-menu" class="nav__links">
+          <a href="index.html#skills" data-i18n="nav.skills">技能</a>
+          <a href="index.html#projects" data-i18n="nav.projects">项目</a>
+          <a href="index.html#contact" data-i18n="nav.contact">联系</a>
+          <a class="btn btn--sm" href="index.html" data-i18n="nav.home"
+            >返回首页</a
+          >
+          <button id="lang-toggle" class="btn btn--sm" type="button">EN</button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="project-page">
+      <section class="project-hero">
+        <p class="eyebrow">
+          <span class="pulse"></span>
+          PROJECT · 04
+        </p>
+        <p class="project-crumb">
+          <a href="index.html" data-i18n="crumb.home">首页</a>
+          <span>/</span>
+          <a href="index.html#projects" data-i18n="projects.title">精选项目</a>
+          <span>/</span>
+          <span data-i18n="project.radar.crumb">毫米波雷达</span>
+        </p>
+        <h1 data-i18n="project.radar.title">FMCW 毫米波雷达信号处理</h1>
+        <p class="hero__lead" data-i18n="project.radar.lead">
+          基于 MATLAB 构建 77GHz FMCW
+          雷达算法链路，完成从一维测距、二维测速到 CFAR
+          目标检测的全流程物理仿真。
+        </p>
+        <div class="project-tags">
+          <span>MATLAB</span>
+          <span>FMCW</span>
+          <span>CFAR</span>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">01 / OVERVIEW</p>
+          <h2 data-i18n="project.radar.overview.title">项目概述</h2>
+        </header>
+        <div class="project-body">
+          <p data-i18n="project.radar.overview.body1">
+            本系统基于调频连续波（FMCW）体制，在 MATLAB
+            中构建完整的雷达信号处理算法链路。系统参数设定为载频 77GHz、带宽
+            4GHz、单 Chirp 扫频周期 50us。通过对中频信号进行快时间（1D
+            FFT）提取距离信息，利用慢时间维度的 2D FFT
+            提取多普勒速度，最后通过 2D CA-CFAR（单元平均恒虚警率）算法在叠加噪声的环境中实现目标的自动检测与聚类。
+          </p>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">02 / ROLE</p>
+          <h2 data-i18n="project.radar.role.title">我的角色</h2>
+        </header>
+        <div class="project-body">
+          <ul class="project-list">
+            <li data-i18n="project.radar.role.item1">
+              独立推导 FMCW 雷达测距、测速数学模型及雷达方程。
+            </li>
+            <li data-i18n="project.radar.role.item2">
+              使用 MATLAB
+              编写波形生成、自由空间传播、目标反射与去斜（Dechirp）全链路仿真代码。
+            </li>
+            <li data-i18n="project.radar.role.item3">
+              实现加窗处理（Hann Window）与 2D FFT 频谱分析，构建
+              Range-Doppler Map。
+            </li>
+            <li data-i18n="project.radar.role.item4">
+              手写 2D CA-CFAR
+              检测器，完成保护单元、参考单元的动态滑动与阈值计算。
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">03 / TECH STACK</p>
+          <h2 data-i18n="project.radar.tech.title">技术细节</h2>
+          <p data-i18n="project.radar.tech.desc">
+            仿真平台、核心算法与雷达体制参数。
+          </p>
+        </header>
+        <dl class="tech-grid">
+          <div>
+            <dt data-i18n="project.radar.tech.platform.label">仿真平台</dt>
+            <dd data-i18n="project.radar.tech.platform.value">
+              MATLAB R2024b (+ Phased Array System Toolbox)
+            </dd>
+          </div>
+          <div>
+            <dt data-i18n="project.radar.tech.algo.label">核心算法</dt>
+            <dd data-i18n="project.radar.tech.algo.value">
+              1D FFT / 2D FFT / CA-CFAR / 8-连通域聚类
+            </dd>
+          </div>
+          <div>
+            <dt data-i18n="project.radar.tech.sys.label">雷达体制</dt>
+            <dd data-i18n="project.radar.tech.sys.value">
+              FMCW (77GHz Center Freq, 4GHz BW)
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">04 / CHALLENGES</p>
+          <h2 data-i18n="project.radar.challenges.title">技术难点</h2>
+        </header>
+        <div class="project-body">
+          <article class="challenge">
+            <h3 data-i18n="project.radar.challenge1.title">
+              难点一 · 欠采样与距离模糊
+            </h3>
+            <p data-i18n="project.radar.challenge1.body">
+              发现题目预设的 10MHz 采样率无法覆盖 30m
+              目标（最大不模糊距离仅约 18.7m），且会导致频谱混叠。通过理论计算将复基带采样率提升至
+              4GHz，成功解算出真实距离。
+            </p>
+          </article>
+          <article class="challenge">
+            <h3 data-i18n="project.radar.challenge2.title">
+              难点二 · 动态阈值与目标聚类
+            </h3>
+            <p data-i18n="project.radar.challenge2.body">
+              在复杂噪声背景下手写 2D CA-CFAR，设计 2x2 保护单元与 4x4
+              参考单元，并结合 Pfa=1e-5
+              动态计算阈值乘数。针对目标主瓣跨越多个像素的问题，实现了基于八连通域的功率加权重心聚类，每个目标只保留一个位置。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section project-block">
+        <header class="section__head">
+          <p class="eyebrow">05 / RESULTS</p>
+          <h2 data-i18n="project.radar.results.title">成果数据与可视化</h2>
+          <p data-i18n="project.radar.results.desc">
+            一维测距、二维测速与 CFAR 检测的量化结果，以及对应仿真图。
+          </p>
+        </header>
+        <dl class="stats results">
+          <div>
+            <dt data-i18n="project.radar.results.metric1.label">一维测距</dt>
+            <dd data-i18n="project.radar.results.metric1.value">
+              30.017 m（分辨率 3.75 cm）
+            </dd>
+          </div>
+          <div>
+            <dt data-i18n="project.radar.results.metric2.label">二维测速</dt>
+            <dd data-i18n="project.radar.results.metric2.value">
+              -15.03 m/s
+            </dd>
+          </div>
+          <div>
+            <dt data-i18n="project.radar.results.metric3.label">CFAR 检测</dt>
+            <dd data-i18n="project.radar.results.metric3.value">
+              Pfa=1e-5 下成功提取
+            </dd>
+          </div>
+        </dl>
+        <div class="project-body">
+          <ul class="project-list">
+            <li data-i18n="project.radar.results.note">
+              形成完整的雷达信号处理链路，并生成 Range-Doppler Map。
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-figures">
+          <figure>
+            <img
+              src="assets/radar-range.png"
+              alt="FMCW 一维距离幅度谱"
+              loading="lazy"
+            />
+            <figcaption data-i18n="project.radar.fig1">
+              图 1：FMCW 一维距离幅度谱（峰值锁定在 30.017m）
+            </figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/radar-doppler.png"
+              alt="距离-多普勒图"
+              loading="lazy"
+            />
+            <figcaption data-i18n="project.radar.fig2">
+              图 2：距离-多普勒图（峰值速度 -15.03 m/s）
+            </figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/radar-cfar.png"
+              alt="二维 CA-CFAR 检测与目标聚类"
+              loading="lazy"
+            />
+            <figcaption data-i18n="project.radar.fig3">
+              图 3：基于二维 CA-CFAR 的检测结果与目标聚类
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section project-cta">
+        <a class="btn" href="index.html" data-i18n="project.cta.home"
+          >← 返回首页</a
+        >
+        <a
+          class="btn btn--ghost"
+          href="index.html#projects"
+          data-i18n="project.cta.others"
+          >查看其他项目</a
+        >
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p data-i18n="footer.copy">© 2026 李艺 · Built with HTML / CSS / JS</p>
+      <a href="#top" data-i18n="footer.top">回到顶部</a>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
